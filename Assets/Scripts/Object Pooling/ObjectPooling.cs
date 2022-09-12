@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class ObjectPooling : MonoBehaviour
 {
-    [SerializeField] private int maxSpawns = 8;
     private Dictionary<string, Queue<GameObject>> objectPool = new Dictionary<string, Queue<GameObject>>();
 
     public GameObject GetObject(GameObject gameObject)
@@ -16,13 +15,10 @@ public class ObjectPooling : MonoBehaviour
                 return CreateNewObject(gameObject);
             // Dequeue
 
-            if (objectList.Count <= maxSpawns)
-            {
-                GameObject _object = objectList.Dequeue();
-                // Activate object
-                _object.SetActive(true);
-                return _object;
-            }
+            GameObject _object = objectList.Dequeue();
+            // Activate object
+            _object.SetActive(true);
+            return _object;
         }
         return CreateNewObject(gameObject);
     }
