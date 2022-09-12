@@ -13,8 +13,8 @@ public class ObjectPooling : MonoBehaviour
             // No match, create a new object
             if (objectList.Count == 0)
                 return CreateNewObject(gameObject);
-            // Dequeue
 
+            // Dequeue
             GameObject _object = objectList.Dequeue();
             // Activate object
             _object.SetActive(true);

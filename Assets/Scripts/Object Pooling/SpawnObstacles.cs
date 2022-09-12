@@ -14,7 +14,6 @@ public class SpawnObstacles : MonoBehaviour
 
     private int lastSpawnPoint;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,15 +23,14 @@ public class SpawnObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnObstaclesRandom();
+        SpawnRandomObstacle();
     }
 
-    private void SpawnObstaclesRandom()
+    private void SpawnRandomObstacle()
     {
         spawnTimer += Time.deltaTime;
 
         if (spawnTimer <= objectPoolTimer) return;
-        Debug.Log(spawnTimer);
 
         // Reset timer to prevent infinite spawning
         spawnTimer = 0;
@@ -44,7 +42,7 @@ public class SpawnObstacles : MonoBehaviour
 
         var randomSpawnPoint = Random.Range(0, spawnPoints.Count);
 
-        // if the random spawn point is the same as the last one, randomize again
+        // If the random spawn point is the same as the last one, randomize again
         if (randomSpawnPoint == lastSpawnPoint)
         {
             randomSpawnPoint = Random.Range(0, spawnPoints.Count);
