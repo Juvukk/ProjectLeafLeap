@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
                 //transform.Translate(transform.right);
             }
         }
+
         transform.position = Vector3.Lerp(transform.position, laneTForms[lanes].position, Time.deltaTime * speed); // this took longer then it should've because i'm stupid.
     }
 
@@ -113,6 +114,7 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Obs"))
         {
+            Debug.Log("Player Hit");
             EventManager.hitEvent?.Invoke();
             // player camera shake
             // player player hit animation
