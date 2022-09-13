@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
@@ -16,13 +15,17 @@ public class Player : MonoBehaviour
     [Tooltip("Offset the raycast to give leeway for the ground check")]
     [SerializeField] private float raycastOffset = 0.1f;
 
+    [SerializeField] private float speed;
     private Rigidbody rb;
     private Collider collider;
+    [SerializeField] private Transform[] laneTForms;
+    [SerializeField] private ObjectPooling poolRef;
 
     // 0: left, 1: middle, 2: right
-    private int lanes = 1;
+    [SerializeField] private int lanes = 1;
 
     private float distToGround;
+
     private void OnEnable()
     {
         movementAction.action.Enable();
@@ -44,7 +47,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Movement();
         Jump();
@@ -60,21 +63,21 @@ public class Player : MonoBehaviour
 
         var inputVector = movementAction.action.ReadValue<Vector3>();
 
-       if (movementAction.action.triggered)
+        if (movementAction.action.triggered)
         {
             // Left
             if (inputVector.x < 0 && lanes > 0)
             {
                 lanes--;
-                transform.Translate(-transform.right);
             }
             // Right
             else if (inputVector.x > 0 && lanes < 2)
             {
                 lanes++;
-                transform.Translate(transform.right);
+                //transform.Translate(transform.right);
             }
         }
+        transform.position = Vector3.Lerp(transform.position, laneTForms[lanes].position, Time.deltaTime * speed); // this took longer then it should've because i'm stupid.
     }
 
     /// <summary>
@@ -104,5 +107,17 @@ public class Player : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, Vector3.down * (distToGround + raycastOffset));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obs"))
+        {
+            EventManager.hitEvent?.Invoke();
+            // player camera shake
+            // player player hit animation
+            // play Sfx
+            poolRef.ReturnGameObject(other.gameObject);
+        }
     }
 }
