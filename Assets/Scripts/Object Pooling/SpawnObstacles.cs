@@ -13,17 +13,29 @@ public class SpawnObstacles : MonoBehaviour
     private float spawnTimer;
 
     private int lastSpawnPoint;
+    private bool allowSpawn = true;
+
+    private void OnEnable()
+    {
+        EventManager.endGame += StopSpawning;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.endGame -= StopSpawning;
+    }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         objectPooling = FindObjectOfType<ObjectPooling>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        SpawnRandomObstacle();
+        if (allowSpawn)
+            SpawnRandomObstacle();
     }
 
     private void SpawnRandomObstacle()
@@ -53,5 +65,10 @@ public class SpawnObstacles : MonoBehaviour
             obstacle.transform.position = spawnPoints[randomSpawnPoint].transform.position;
             lastSpawnPoint = randomSpawnPoint;
         }
+    }
+
+    private void StopSpawning()
+    {
+        allowSpawn = false;
     }
 }

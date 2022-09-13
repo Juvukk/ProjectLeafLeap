@@ -15,13 +15,21 @@ public class ObjectPoolingReturnGameObject : MonoBehaviour
 
     private void Update()
     {
-        timeSinceDeactivation += Time.deltaTime;
+        //timeSinceDeactivation += Time.deltaTime;
 
-        if (!isobjectPoolNotNull && !(timeSinceDeactivation >= timeToDeactivate)) return;
+        //if (!isobjectPoolNotNull && !(timeSinceDeactivation >= timeToDeactivate)) return;
 
-        // Add to the queue
-        objectPool.ReturnGameObject(this.gameObject);
-        // Reset timer
-        timeSinceDeactivation = 0f;
+        //// Add to the queue
+        //objectPool.ReturnGameObject(this.gameObject);
+        //// Reset timer
+        //timeSinceDeactivation = 0f;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Destroyer"))
+        {
+            objectPool.ReturnGameObject(this.gameObject);
+        }
     }
 }

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public bool gameEnded = false;
+    [SerializeField] private float maxGameTime;
+    [SerializeField] private float gameTime;
 
     private void OnEnable()
     {
@@ -23,6 +25,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (gameTime < maxGameTime)
+        {
+            gameTime += 1 * Time.deltaTime;
+        }
+        else
+        {
+            gameEnded = true;
+        }
+
         if (gameEnded)
         {
             EventManager.endGame?.Invoke();
