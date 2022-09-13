@@ -16,13 +16,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float raycastOffset = 0.1f;
 
     [SerializeField] private float speed;
-    private Rigidbody rb;
-    private Collider collider;
-    [SerializeField] private Transform[] laneTForms;
-    [SerializeField] private ObjectPooling poolRef;
 
     // 0: left, 1: middle, 2: right
     [SerializeField] private int lanes = 1;
+    [SerializeField] private Transform[] laneTForms;
+    
+    private ObjectPooling objectPool;
+    private Rigidbody rb;
+    private Collider collider;
 
     private float distToGround;
 
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        objectPool = FindObjectOfType<ObjectPooling>();
         collider = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
 
@@ -58,9 +60,6 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Movement()
     {
-        // TODO:
-        // Move the player using the lanes instead of vectors
-
         var inputVector = movementAction.action.ReadValue<Vector3>();
 
         if (movementAction.action.triggered)
@@ -74,7 +73,6 @@ public class Player : MonoBehaviour
             else if (inputVector.x > 0 && lanes < 2)
             {
                 lanes++;
-                //transform.Translate(transform.right);
             }
         }
 
@@ -114,12 +112,11 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Obs"))
         {
-            Debug.Log("Player Hit");
             EventManager.hitEvent?.Invoke();
             // player camera shake
             // player player hit animation
             // play Sfx
-            poolRef.ReturnGameObject(other.gameObject);
+            objectPool.ReturnGameObject(other.gameObject);
         }
     }
 }
