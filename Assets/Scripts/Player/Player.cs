@@ -20,7 +20,9 @@ public class Player : MonoBehaviour
     // 0: left, 1: middle, 2: right
     [SerializeField] private int lanes = 1;
     [SerializeField] private Transform[] laneTForms;
-    
+
+    public bool isPlayerHit = false;
+
     private ObjectPooling objectPool;
     private Rigidbody rb;
     private Collider collider;
@@ -113,6 +115,9 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Obs"))
         {
             EventManager.hitEvent?.Invoke();
+
+            isPlayerHit = true;
+
             // player camera shake
             // player player hit animation
             // play Sfx
