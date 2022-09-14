@@ -11,6 +11,7 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField] private int scoreIncrease;
     [SerializeField] private int decreaseScore;
 
+    [Header("Rankings")]
     [SerializeField] private int dThreshold;
     [SerializeField] private int cThreshold;
     [SerializeField] private int bThreshold;

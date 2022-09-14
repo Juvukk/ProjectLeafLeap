@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class SpawnObstacles : MonoBehaviour
 {
+    [Header("Obstacles")]
     [SerializeField] private List<GameObject> obstacles = new List<GameObject>();
     [SerializeField] private List<GameObject> spawnPoints = new List<GameObject>();
 
-    [Tooltip("Default threshold for spawning obstacles")]
-    [SerializeField] private float defaultObjectPoolTimer = 5f;
-
+    [Header("Object Pooling Settings")]
+    [SerializeField,Tooltip("Default threshold for spawning obstacles")] 
+    private float defaultOPTimerThreshold = 5f;
     [SerializeField] private float runtimeThreshold = 5f;
-    [SerializeField] private float minObjectPoolThreshold = 0.2f;
-    [SerializeField] private float increaseObjectPoolTimer = 0.5f;
-    [SerializeField] private float decreaseObjectPoolTimer = 0.5f;
+    [SerializeField] private float minSpawnIntervals = 0.2f;
+    [SerializeField] private float increaseSpawnIntervals = 0.5f;
+    [SerializeField] private float decreaseSpawnIntervals = 0.5f;
 
     private Player player;
 
@@ -78,18 +79,22 @@ public class SpawnObstacles : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Change how frequent the spawning occurs
+    /// Based on how long the player can go without colliding with an obstacle
+    /// </summary>
     public void ChangeSpawnInterval()
     {
         totalRuntime += Time.deltaTime;
 
-        objectPoolTimer = Mathf.Clamp(objectPoolTimer, 0.2f, defaultObjectPoolTimer);
+        objectPoolTimer = Mathf.Clamp(objectPoolTimer, 0.2f, defaultOPTimerThreshold);
 
         // If total run time exceeds x,
         // decrease the spawning interval by x seconds
-        if (totalRuntime >= runtimeThreshold && objectPoolTimer >= minObjectPoolThreshold)
+        if (totalRuntime >= runtimeThreshold && objectPoolTimer >= minSpawnIntervals)
         {
             // Decrease the spawning interval
-            objectPoolTimer -= decreaseObjectPoolTimer;
+            objectPoolTimer -= decreaseSpawnIntervals;
             // Reset timer
             totalRuntime = 0;
         }
@@ -100,7 +105,7 @@ public class SpawnObstacles : MonoBehaviour
             totalRuntime = 0;
 
             // Increase the spawning interval
-            objectPoolTimer += increaseObjectPoolTimer;
+            objectPoolTimer += increaseSpawnIntervals;
         }
         else if (objectPoolTimer < 0.2f)
         {
