@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ScoreSystem : MonoBehaviour
 {
-    public float score;
+    public float score { get; private set; }
+    public int obstaclesHit;
+    public string rating;
+
     [SerializeField] private int scoreIncrease;
     [SerializeField] private int decreaseScore;
-    public int obstaclesHit;
+
     [SerializeField] private int dThreshold;
     [SerializeField] private int cThreshold;
     [SerializeField] private int bThreshold;
     [SerializeField] private int aThreshold;
-    public string rating;
+
     [SerializeField] private bool allowIncrease = false;
 
     private void OnEnable()
