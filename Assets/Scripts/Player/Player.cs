@@ -21,13 +21,14 @@ public class Player : MonoBehaviour
     [SerializeField] private int lanes = 1;
     [SerializeField] private Transform[] laneTForms;
 
-    public bool isPlayerHit = false;
+    [HideInInspector] public bool isPlayerHit { get; private set; } = false;
 
     private ObjectPooling objectPool;
     private Rigidbody rb;
     private Collider collider;
 
     private float distToGround;
+
 
     private void OnEnable()
     {
@@ -115,7 +116,6 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Obs"))
         {
             EventManager.hitEvent?.Invoke();
-
             isPlayerHit = true;
 
             // player camera shake
@@ -123,5 +123,14 @@ public class Player : MonoBehaviour
             // play Sfx
             objectPool.ReturnGameObject(other.gameObject);
         }
+    }
+
+    public void SetPlayerHit(bool playerHit)
+    {
+        // To prevent the object pooling timer
+        // from overspamming obstacles
+        isPlayerHit = playerHit;
+
+        Debug.Log(isPlayerHit);
     }
 }

@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO
-// Change the frequencies of how often the obstacles shall spawn
-// Based on the player's performance
-// The longer the player goes without colliding, the faster they spawn
-// Reset the frequency on collision
 public class SpawnObstacles : MonoBehaviour
 {
     [SerializeField] private List<GameObject> obstacles = new List<GameObject>();
     [SerializeField] private List<GameObject> spawnPoints = new List<GameObject>();
 
+    [Tooltip("Default threshold for spawning obstacles")]
     [SerializeField] private float defaultObjectPoolTimer = 5f;
 
+    [SerializeField] private float runtimeThreshold = 5f;
+    [SerializeField] private float minObjectPoolThreshold = 0.2f;
+    [SerializeField] private float increaseObjectPoolTimer = 0.5f;
+    [SerializeField] private float decreaseObjectPoolTimer = 0.5f;
+
     private Player player;
+
     private ObjectPooling objectPooling;
     private float objectPoolTimer = 3f;
     private float spawnTimer;
@@ -22,6 +24,7 @@ public class SpawnObstacles : MonoBehaviour
 
     private int lastSpawnPoint;
     private bool allowSpawn = true;
+
 
     private void OnEnable()
     {
@@ -33,18 +36,15 @@ public class SpawnObstacles : MonoBehaviour
         EventManager.endGame -= StopSpawning;
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
         player = FindObjectOfType<Player>();
         objectPooling = FindObjectOfType<ObjectPooling>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        if (allowSpawn)
-            SpawnRandomObstacle();
+        if (allowSpawn) SpawnRandomObstacle();
 
         ChangeSpawnInterval();
     }
@@ -82,18 +82,25 @@ public class SpawnObstacles : MonoBehaviour
     {
         totalRuntime += Time.deltaTime;
 
-        Mathf.Clamp(objectPoolTimer, 0.2f, defaultObjectPoolTimer);
+        objectPoolTimer = Mathf.Clamp(objectPoolTimer, 0.2f, defaultObjectPoolTimer);
 
-        if (totalRuntime >= 5f && objectPoolTimer >= 0.2f)
+        // If total run time exceeds x,
+        // decrease the spawning interval by x seconds
+        if (totalRuntime >= runtimeThreshold && objectPoolTimer >= minObjectPoolThreshold)
         {
-            objectPoolTimer -= 0.5f;
+            // Decrease the spawning interval
+            objectPoolTimer -= decreaseObjectPoolTimer;
+            // Reset timer
             totalRuntime = 0;
         }
         else if (player.isPlayerHit)
         {
-            player.isPlayerHit = false;
+            // Reset playerhit
+            player.SetPlayerHit(false);
             totalRuntime = 0;
-            objectPoolTimer += 0.4f;
+
+            // Increase the spawning interval
+            objectPoolTimer += increaseObjectPoolTimer;
         }
         else if (objectPoolTimer < 0.2f)
         {

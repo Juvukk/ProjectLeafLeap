@@ -773,6 +773,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8296687831641108772, guid: 50f9e823a6b471b41a4c1c73011a7f65, type: 3}
+      propertyPath: runtimeThreshold
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296687831641108772, guid: 50f9e823a6b471b41a4c1c73011a7f65, type: 3}
+      propertyPath: increaseObjectPoolTimer
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296687831641108772, guid: 50f9e823a6b471b41a4c1c73011a7f65, type: 3}
+      propertyPath: deccreaseObjectPoolTimer
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8296687832855218567, guid: 50f9e823a6b471b41a4c1c73011a7f65, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
