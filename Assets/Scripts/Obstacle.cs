@@ -7,6 +7,11 @@ public class Obstacle : MonoBehaviour
 {
     private Rigidbody rb;
 
+    private void OnEnable()
+    {
+        rb.velocity = Vector3.zero;
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
