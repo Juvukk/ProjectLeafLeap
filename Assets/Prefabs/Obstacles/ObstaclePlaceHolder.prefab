@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7483250c7c9c2e4ca8cedb892908dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDeactivate: 20
+  timeToDeactivate: 5
 --- !u!136 &7749229772846731594
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 1
-  m_IgnoreTag: 
+  m_IgnoreTag: Destroyer
   m_UseImpactDirection: 1
   m_ScaleImpactWithMass: 0
   m_ScaleImpactWithSpeed: 1
