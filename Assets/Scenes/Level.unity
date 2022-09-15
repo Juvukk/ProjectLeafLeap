@@ -202,10 +202,6 @@ PrefabInstance:
       propertyPath: obstaclesHitText
       value: 
       objectReference: {fileID: 293863263}
-    - target: {fileID: 6534435510862975382, guid: 6732f536770a484469bfe03e8bae7e3f, type: 3}
-      propertyPath: maxGameTime
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 6534435510862975383, guid: 6732f536770a484469bfe03e8bae7e3f, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -240,6 +236,14 @@ PrefabInstance:
       propertyPath: poolRef
       value: 
       objectReference: {fileID: 2060861511}
+    - target: {fileID: 225936166, guid: 5735199ba1591d545819e5990f70db05, type: 3}
+      propertyPath: effectJump
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f86be3abcd2dd340811ef8f3611884e, type: 3}
+    - target: {fileID: 225936166, guid: 5735199ba1591d545819e5990f70db05, type: 3}
+      propertyPath: effectLaneSwitch
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c0b92120531478438ea6b119cfc5f9f, type: 3}
     - target: {fileID: 225936166, guid: 5735199ba1591d545819e5990f70db05, type: 3}
       propertyPath: laneTForms.Array.size
       value: 3
