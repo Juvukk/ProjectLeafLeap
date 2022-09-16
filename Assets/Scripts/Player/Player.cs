@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,8 +7,12 @@ public class Player : MonoBehaviour
 {
     [Header("Input Actions")]
     [SerializeField] private InputActionReference movementAction;
+
     [SerializeField] private InputActionReference jumpAction;
+
+    [Header("Animations")]
     [SerializeField] private Animator playerAni;
+    [SerializeField] private AnimatorController playerController;
 
     [Header("Player Settings")]
     [Tooltip("How high the player jumps")]
@@ -21,13 +24,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
 
     [Header("Lanes")]
-    // 0: left, 1: middle, 2: right
-    [SerializeField] private int lanes = 1;
+    private int lanes = 1;
 
     [SerializeField] private Transform[] laneTForms;
 
     [HideInInspector] public bool isPlayerHit { get; private set; } = false;
 
+    [Header("Audio")]
     [SerializeField] private AudioClip effectsJump;
     [SerializeField] private AudioClip effectsMove;
 
@@ -37,6 +40,8 @@ public class Player : MonoBehaviour
     private Collider otherCollider;
 
     private float distToGround;
+
+    private AnimatorControllerParameter[] parameters;
 
     private void OnEnable()
     {
@@ -57,6 +62,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         distToGround = collider.bounds.extents.y;
+
+        parameters = playerController.parameters;
     }
 
     private void Update()
@@ -80,24 +87,18 @@ public class Player : MonoBehaviour
             if (inputVector.x < 0 && lanes > 0)
             {
                 lanes--;
-                playerAni.SetBool("IsForward", false);
-                playerAni.SetBool("IsRight", false);
-                playerAni.SetBool("IsLeft", true);
+                SetAnimBool("IsLeft", true);
             }
             // Right
             else if (inputVector.x > 0 && lanes < 2)
             {
                 lanes++;
-                playerAni.SetBool("IsForward", false);
-                playerAni.SetBool("IsLeft", false);
-                playerAni.SetBool("IsRight", true);
+                SetAnimBool("IsRight", true);
             }
         }
         else if (!movementAction.action.triggered)
         {
-            playerAni.SetBool("IsForward", true);
-            playerAni.SetBool("IsRight", false);
-            playerAni.SetBool("IsLeft", false);
+            SetAnimBool("IsForward", true);
         }
         Vector3 MovePos = new Vector3(laneTForms[lanes].position.x, transform.position.y, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, MovePos, Time.deltaTime * speed);
@@ -153,5 +154,26 @@ public class Player : MonoBehaviour
         // To prevent the object pooling timer
         // from overspamming obstacles
         isPlayerHit = playerHit;
+    }
+
+    /// <summary>
+    /// Set animations true or false
+    /// Only works with bool parameters 
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="isTrue"></param>
+    private void SetAnimBool(string name, bool isTrue)
+    {
+        for (int i = 0; i < parameters.Length; i++)
+        {
+            if (parameters[i].name == name && parameters[i].type == AnimatorControllerParameterType.Bool)
+            {
+                playerAni.SetBool(name, isTrue);
+            }
+            else if(parameters[i].name != name && parameters[i].type == AnimatorControllerParameterType.Bool)
+            {
+                playerAni.SetBool(parameters[i].name, false);
+            }
+        }
     }
 }

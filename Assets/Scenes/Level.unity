@@ -277,6 +277,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7925528578854482192, guid: 5735199ba1591d545819e5990f70db05, type: 3}
+      propertyPath: jumpForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925528578854482192, guid: 5735199ba1591d545819e5990f70db05, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 9100000, guid: bff87f65e98b6784ba81d940b98e747e, type: 2}
+    - target: {fileID: 7925528578854482192, guid: 5735199ba1591d545819e5990f70db05, type: 3}
       propertyPath: laneTForms.Array.data[0]
       value: 
       objectReference: {fileID: 1082457741}
@@ -291,6 +299,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5735199ba1591d545819e5990f70db05, type: 3}
+--- !u!4 &441271951 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5792845552774313037, guid: 5735199ba1591d545819e5990f70db05, type: 3}
+  m_PrefabInstance: {fileID: 441271950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &594813925 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6534435510862975382, guid: 6732f536770a484469bfe03e8bae7e3f, type: 3}
@@ -713,7 +726,7 @@ PrefabInstance:
     - target: {fileID: 8598885281654445408, guid: a841f153e04e0ca469010d8da239a2dd, type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 441271951}
     - target: {fileID: 8598885281654445409, guid: a841f153e04e0ca469010d8da239a2dd, type: 3}
       propertyPath: m_RootOrder
       value: 5
