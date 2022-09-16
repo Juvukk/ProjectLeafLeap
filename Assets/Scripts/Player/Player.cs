@@ -144,7 +144,6 @@ public class Player : MonoBehaviour
             isPlayerHit = true;
 
             playerAni.SetTrigger("IsHit");
-            // play Sfx
             objectPool.ReturnGameObject(other.gameObject);
         }
     }
