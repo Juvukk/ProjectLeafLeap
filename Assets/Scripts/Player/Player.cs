@@ -6,10 +6,12 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
+    [Header("Input Actions")]
     [SerializeField] private InputActionReference movementAction;
     [SerializeField] private InputActionReference jumpAction;
     [SerializeField] private Animator playerAni;
 
+    [Header("Player Settings")]
     [Tooltip("How high the player jumps")]
     [SerializeField] private float jumpForce = 3f;
 
@@ -18,12 +20,16 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float speed;
 
+    [Header("Lanes")]
     // 0: left, 1: middle, 2: right
     [SerializeField] private int lanes = 1;
 
     [SerializeField] private Transform[] laneTForms;
 
     [HideInInspector] public bool isPlayerHit { get; private set; } = false;
+
+    [SerializeField] private AudioClip effectsJump;
+    [SerializeField] private AudioClip effectsMove;
 
     private ObjectPooling objectPool;
     private Rigidbody rb;
@@ -53,7 +59,6 @@ public class Player : MonoBehaviour
         distToGround = collider.bounds.extents.y;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         Movement();
@@ -69,10 +74,11 @@ public class Player : MonoBehaviour
 
         if (movementAction.action.triggered)
         {
+            AudioManager.Instance.PlaySFX(effectsJump);
+
             // Left
             if (inputVector.x < 0 && lanes > 0)
             {
-                Debug.Log("left");
                 lanes--;
                 playerAni.SetBool("IsForward", false);
                 playerAni.SetBool("IsRight", false);
@@ -81,7 +87,6 @@ public class Player : MonoBehaviour
             // Right
             else if (inputVector.x > 0 && lanes < 2)
             {
-                Debug.Log("Right");
                 lanes++;
                 playerAni.SetBool("IsForward", false);
                 playerAni.SetBool("IsLeft", false);
@@ -95,7 +100,7 @@ public class Player : MonoBehaviour
             playerAni.SetBool("IsLeft", false);
         }
         Vector3 MovePos = new Vector3(laneTForms[lanes].position.x, transform.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, MovePos, Time.deltaTime * speed); // this took longer then it should've because i'm stupid.
+        transform.position = Vector3.Lerp(transform.position, MovePos, Time.deltaTime * speed);
     }
 
     /// <summary>
@@ -105,7 +110,7 @@ public class Player : MonoBehaviour
     {
         if (jumpAction.action.triggered && IsPlayerGrounded())
         {
-            Debug.Log("jumping");
+            AudioManager.Instance.PlaySFX(effectsJump);
             playerAni.SetTrigger("IsJump");
             // Multiply by jumpForce to get the desired jump height
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -137,7 +142,6 @@ public class Player : MonoBehaviour
             otherCollider = other;
             isPlayerHit = true;
 
-            // player camera shake
             playerAni.SetTrigger("IsHit");
             // play Sfx
             objectPool.ReturnGameObject(other.gameObject);

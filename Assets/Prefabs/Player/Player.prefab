@@ -1334,7 +1334,7 @@ Transform:
   m_Children:
   - {fileID: 8635061791809116394}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &799663031890553517
 CapsuleCollider:
@@ -1389,6 +1389,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  effectsJump: {fileID: 8300000, guid: 8f86be3abcd2dd340811ef8f3611884e, type: 3}
+  effectsMove: {fileID: 8300000, guid: 1c0b92120531478438ea6b119cfc5f9f, type: 3}
 --- !u!1 &4964670826267807597
 GameObject:
   m_ObjectHideFlags: 0
