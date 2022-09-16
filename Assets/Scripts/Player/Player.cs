@@ -149,7 +149,5 @@ public class Player : MonoBehaviour
         // To prevent the object pooling timer
         // from overspamming obstacles
         isPlayerHit = playerHit;
-
-        Debug.Log(isPlayerHit);
     }
 }
