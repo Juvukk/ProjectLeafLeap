@@ -990,7 +990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8296687831641108772, guid: 50f9e823a6b471b41a4c1c73011a7f65, type: 3}
       propertyPath: defaultOPTimerThreshold
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8296687831641108772, guid: 50f9e823a6b471b41a4c1c73011a7f65, type: 3}
       propertyPath: obstacles.Array.data[1]

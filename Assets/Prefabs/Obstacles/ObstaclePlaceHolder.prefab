@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7483250c7c9c2e4ca8cedb892908dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDeactivate: 5
+  deactivationTimer: 1
 --- !u!136 &7749229772846731594
 CapsuleCollider:
   m_ObjectHideFlags: 0
