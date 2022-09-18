@@ -9,7 +9,6 @@ public class ObjectPoolingReturnGameObject : MonoBehaviour
         objectPool = FindObjectOfType<ObjectPooling>();
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Destroyer"))
