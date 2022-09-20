@@ -26,7 +26,6 @@ public class SpawnObstacles : MonoBehaviour
     private int lastSpawnPoint;
     private bool allowSpawn = true;
 
-
     private void OnEnable()
     {
         EventManager.endGame += StopSpawning;
