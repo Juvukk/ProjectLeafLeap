@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnBackgroundObjects : MonoBehaviour
 {
     [SerializeField] private List<GameObject> backgroundObjects = new List<GameObject>();
     [SerializeField] private Transform spawnPoint;
+
+    [Tooltip("When a background object reaches this point, spawn a new background object")]
     [SerializeField] private float zThreshold = -25f;
 
     private ObjectPooling objectPooling;
@@ -24,15 +27,20 @@ public class SpawnBackgroundObjects : MonoBehaviour
         SpawnBkgObjects();
     }
 
+    /// <summary>
+    /// Spawn randomized background objects
+    /// </summary>
     private void SpawnBkgObjects()
     {
-        var randomBkg = ReturnRandomizedBkg(backgroundObjects);
+        var randomBkg = Random.Range(0, backgroundObjects.Count);
 
         if (bkg == null)
         {
             // Spawn a randomized background object
             bkg = objectPooling.GetObject(backgroundObjects[randomBkg]);
 
+            // Set spawned background object to parent
+            // for organization purposes
             bkg.transform.parent = spawnPoint;
 
             // Set the position of background object to the same as the spawn point
@@ -40,9 +48,13 @@ public class SpawnBackgroundObjects : MonoBehaviour
 
             spawnedBkgObjects.Add(bkg);
         }
-        else if (bkg != null)
+        else if (bkg != null && randomBkg != lastRandomizedBkg)
         {
-            // If an background already exists,
+            lastRandomizedBkg = randomBkg;
+
+            // If an background already exists
+            // and is x floats on the Z-Axis from the previously spawned background object
+            // spawn a new background object
             if (spawnedBkgObjects[spawnedBkgObjects.Count - 1].transform.position.z >= zThreshold)
             {
                 var newbkg = objectPooling.GetObject(backgroundObjects[randomBkg]);
@@ -57,22 +69,9 @@ public class SpawnBackgroundObjects : MonoBehaviour
                 newbkg.transform.position = spawnPoint.position;
             }
         }
-    }
-
-    private int ReturnRandomizedBkg(List<GameObject> backgroundObjects)
-    {
-        var rdm = Random.Range(0, backgroundObjects.Count);
-
-        if (rdm != lastRandomizedBkg)
+        else if (bkg != null && randomBkg == lastRandomizedBkg)
         {
-            lastRandomizedBkg = rdm;
-            return rdm;
+            randomBkg = Random.Range(0, backgroundObjects.Count);
         }
-        else if (rdm == lastRandomizedBkg)
-        {
-            rdm = Random.Range(0, backgroundObjects.Count);
-        }
-
-        return rdm;
     }
 }
