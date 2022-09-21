@@ -13,6 +13,7 @@ public class ScoreSystem : MonoBehaviour
 
     [Header("Rankings")]
     [SerializeField] private int dThreshold;
+
     [SerializeField] private int cThreshold;
     [SerializeField] private int bThreshold;
     [SerializeField] private int aThreshold;
@@ -81,10 +82,13 @@ public class ScoreSystem : MonoBehaviour
 
     private void LowerScore()
     {
-        allowIncrease = false;
-        score -= decreaseScore;
-        obstaclesHit = obstaclesHit + 1;
-        allowIncrease = true;
+        if (score > 0)
+        {
+            allowIncrease = false;
+            score -= decreaseScore;
+            obstaclesHit = obstaclesHit + 1;
+            allowIncrease = true;
+        }
     }
 
     private void GameEnded()

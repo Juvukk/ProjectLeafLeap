@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         {
             EventManager.endGame?.Invoke();
             gameEnded = false;
+            Time.timeScale = 0;
         }
     }
 
