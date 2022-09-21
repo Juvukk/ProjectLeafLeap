@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public bool gameEnded = false;
     [SerializeField] private float maxGameTime;
     [SerializeField] private float gameTime;
+    [SerializeField] private GameObject jumpPrefab;
+    [SerializeField] private Transform spawner;
 
     private void OnEnable()
     {
@@ -30,16 +32,11 @@ public class GameManager : MonoBehaviour
         {
             gameTime += 1 * Time.deltaTime;
         }
-        else
+        else if (gameTime >= maxGameTime && !gameEnded)
         {
+            GameObject temp = Instantiate(jumpPrefab, spawner);
+            temp.transform.parent = null;
             gameEnded = true;
-        }
-
-        if (gameEnded)
-        {
-            EventManager.endGame?.Invoke();
-            gameEnded = false;
-            Time.timeScale = 0;
         }
     }
 

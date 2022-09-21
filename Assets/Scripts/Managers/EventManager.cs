@@ -15,4 +15,8 @@ public class EventManager : MonoBehaviour
     public delegate void EndGameEvent();
 
     public static EndGameEvent endGame;
+
+    public delegate void BeginEnd();
+
+    public static BeginEnd endBegin;
 }

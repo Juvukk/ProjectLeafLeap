@@ -45,6 +45,7 @@ public class ScoreSystem : MonoBehaviour
 
     private void UpdateScore()
     {
+        score = Mathf.Clamp(score, 0, 9999);
         if (allowIncrease)
         {
             score += scoreIncrease * Time.deltaTime;

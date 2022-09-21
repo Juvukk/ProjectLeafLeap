@@ -46,6 +46,8 @@ public class InGameUI : MonoBehaviour
         obstaclesHitText.text = scoreRef.obstaclesHit.ToString();
         ratingText.text = scoreRef.rating;
         endPanel.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        Time.timeScale = 0;
         yield return null;
     }
 }

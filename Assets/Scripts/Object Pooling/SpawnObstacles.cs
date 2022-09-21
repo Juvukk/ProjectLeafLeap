@@ -6,11 +6,13 @@ public class SpawnObstacles : MonoBehaviour
 {
     [Header("Obstacles")]
     [SerializeField] private List<GameObject> obstacles = new List<GameObject>();
+
     [SerializeField] private List<GameObject> spawnPoints = new List<GameObject>();
 
     [Header("Object Pooling Settings")]
-    [SerializeField,Tooltip("Default threshold for spawning obstacles")] 
+    [SerializeField, Tooltip("Default threshold for spawning obstacles")]
     private float defaultOPTimerThreshold = 5f;
+
     [SerializeField] private float runtimeThreshold = 5f;
     [SerializeField] private float minSpawnIntervals = 0.2f;
     [SerializeField] private float increaseSpawnIntervals = 0.5f;
@@ -28,12 +30,12 @@ public class SpawnObstacles : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.endGame += StopSpawning;
+        EventManager.endBegin += StopSpawning;
     }
 
     private void OnDisable()
     {
-        EventManager.endGame -= StopSpawning;
+        EventManager.endBegin -= StopSpawning;
     }
 
     private void Start()
@@ -115,5 +117,6 @@ public class SpawnObstacles : MonoBehaviour
     private void StopSpawning()
     {
         allowSpawn = false;
+        Debug.Log("stopping spawning");
     }
 }
