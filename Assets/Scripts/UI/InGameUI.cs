@@ -42,8 +42,8 @@ public class InGameUI : MonoBehaviour
     private IEnumerator ShowScore()
     {
         yield return new WaitForSeconds(.5f);
-        endScoreText.text = scoreRef.score.ToString();
-        obstaclesHitText.text = scoreRef.obstaclesHit.ToString();
+        endScoreText.text = "Score:" + scoreRef.score.ToString("f0");
+        obstaclesHitText.text = "Obstacles Hit:" + scoreRef.obstaclesHit.ToString();
         ratingText.text = scoreRef.rating;
         endPanel.SetActive(true);
         yield return new WaitForSeconds(.5f);

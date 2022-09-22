@@ -88,7 +88,7 @@ public class SpawnObstacles : MonoBehaviour
     {
         totalRuntime += Time.deltaTime;
 
-        objectPoolTimer = Mathf.Clamp(objectPoolTimer, 0.2f, defaultOPTimerThreshold);
+        objectPoolTimer = Mathf.Clamp(objectPoolTimer, minSpawnIntervals, defaultOPTimerThreshold);
 
         // If total run time exceeds x,
         // decrease the spawning interval by x seconds

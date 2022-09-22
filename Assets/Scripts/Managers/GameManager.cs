@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public bool gameEnded = false;
+    public bool isEnding;
     [SerializeField] private float maxGameTime;
     [SerializeField] private float gameTime;
+    [SerializeField] private float stopSpawninginterval;
+    [SerializeField] private GameObject stopSpawnPrefab;
     [SerializeField] private GameObject jumpPrefab;
     [SerializeField] private Transform spawner;
 
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+        stopSpawninginterval = maxGameTime - stopSpawninginterval;
     }
 
     // Update is called once per frame
@@ -31,6 +35,13 @@ public class GameManager : MonoBehaviour
         if (gameTime < maxGameTime)
         {
             gameTime += 1 * Time.deltaTime;
+        }
+
+        if (gameTime >= stopSpawninginterval && !isEnding)
+        {
+            GameObject temp = Instantiate(stopSpawnPrefab, spawner);
+            temp.transform.parent = null;
+            isEnding = true;
         }
         else if (gameTime >= maxGameTime && !gameEnded)
         {
