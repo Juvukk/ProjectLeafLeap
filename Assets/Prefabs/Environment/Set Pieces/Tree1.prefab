@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4435613419604642324}
   - component: {fileID: 7560546803404710935}
   - component: {fileID: -3302050394945259662}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,6 +196,10 @@ PrefabInstance:
     - target: {fileID: 6497352190729143511, guid: 8da7bc93a7c2f7a4f83bcc4acb5e00d6, type: 3}
       propertyPath: m_Name
       value: Leaves 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497352190729143511, guid: 8da7bc93a7c2f7a4f83bcc4acb5e00d6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

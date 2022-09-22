@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6086635364913076899}
   - component: {fileID: 4910070793991153692}
   - component: {fileID: 5594866295380148757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Veh_Car_Sedan_Wheel_fl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,8 @@ GameObject:
   - component: {fileID: 4801212517215394849}
   - component: {fileID: 6987383025516837508}
   - component: {fileID: 1001460748881978280}
-  m_Layer: 0
+  - component: {fileID: 1679533300191278366}
+  m_Layer: 6
   m_Name: Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4069521314845621033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.68, y: -0.062, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -242,7 +243,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
@@ -367,6 +368,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &1679533300191278366
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069521314845621033}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1721282, y: 1.3089987, z: 5.1654243}
+  m_Center: {x: -0.0000015497208, y: 0.8805966, z: 0.11457074}
 --- !u!1 &4069521314845621035
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +395,7 @@ GameObject:
   - component: {fileID: 127769272425222196}
   - component: {fileID: 5880218368961849758}
   - component: {fileID: 374422967837428502}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Veh_Car_Sedan_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +521,7 @@ GameObject:
   - component: {fileID: 2159469908029033993}
   - component: {fileID: 4011654265390728596}
   - component: {fileID: 1751281056072572625}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Veh_Car_Sedan_Plates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +648,7 @@ GameObject:
   - component: {fileID: 5848699406844972846}
   - component: {fileID: 426920001354425336}
   - component: {fileID: 3717842821441660475}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Veh_Car_Sedan_Wheel_fl.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
