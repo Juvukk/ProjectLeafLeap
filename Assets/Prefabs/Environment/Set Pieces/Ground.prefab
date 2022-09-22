@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8352593183453003343}
   - component: {fileID: 8352593183453003342}
   - component: {fileID: 8352593183453003341}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8352593183474425405}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 8352593183553432212}
   - component: {fileID: 8352593183553432211}
   - component: {fileID: 8352593183553432210}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Road2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 8352593183735788082}
   - component: {fileID: 8352593183735788081}
   - component: {fileID: 8352593183735788080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 8352593185237485167}
   - component: {fileID: 8352593185237485166}
   - component: {fileID: 8352593185237485165}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}

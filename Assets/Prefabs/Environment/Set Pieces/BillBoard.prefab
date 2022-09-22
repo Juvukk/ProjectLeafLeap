@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8967377679113012361}
   - component: {fileID: -7486165496707309521}
   - component: {fileID: 955004252678777570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BillBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 9015990458010977318}
   - component: {fileID: 9015990458012040386}
   - component: {fileID: 9076745548971591584}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
