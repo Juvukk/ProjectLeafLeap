@@ -2372,6 +2372,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 145666701}
+    - target: {fileID: 5254659153891652460, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
+      propertyPath: m_text
+      value: "Andrew Hickin\n\nBekki Broughton\n\nChris Bjoerk\n\nSFX \nRonald Kitcher-Pentey\n\nMusic\nVictor
+        Lim \u2014 Composer.\n\nCharacter:\n\"Stylized Low Poly Girl Character\"
+        by micaelsampaio is licensed under Creative Commons Attribution  4.0. https://micaelsampaio.itch.io/
+        \nEdited By Andrew Hickin\n\nEnviroment: \nLowpoly City By Synty Via Unity
+        Asset Store\nHouse by Andrew Hickin\nHalloween Decorations by Andrew Hickin\nCoffee
+        Cup by Andrew Hickin. \nLeaf/ Leaf Piles By Andrew Hickin. \n\n\nUI Design
+        By Bekki Broughton\nUI Art By Andrew Hickin\nFont\nRussoOne- Open Font Licence
+        Via Google Fonts."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
@@ -2571,8 +2582,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEnded: 1
+  isEnding: 0
   maxGameTime: 0
   gameTime: 1
+  stopSpawninginterval: 0
+  stopSpawnPrefab: {fileID: 0}
+  jumpPrefab: {fileID: 0}
+  spawner: {fileID: 0}
 --- !u!114 &6534435511154881287
 MonoBehaviour:
   m_ObjectHideFlags: 0

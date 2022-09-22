@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     [Header("Animations")]
     [SerializeField] private Animator playerAni;
+
     [SerializeField] private AnimatorController playerController;
 
     [Header("Player Settings")]
@@ -32,7 +33,10 @@ public class Player : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioClip effectsJump;
-    [SerializeField] private AudioClip effectsMove;
+
+    [SerializeField] private AudioClip[] effectsMove;
+
+    [SerializeField] private AudioClip[] effectsHit;
 
     private ObjectPooling objectPool;
     private Rigidbody rb;
@@ -81,7 +85,8 @@ public class Player : MonoBehaviour
 
         if (movementAction.action.triggered)
         {
-            AudioManager.Instance.PlaySFX(effectsJump);
+            int rand = Random.Range(0, effectsMove.Length);
+            AudioManager.Instance.PlaySFX(effectsMove[rand]);
 
             // Left
             if (inputVector.x < 0 && lanes > 0)
@@ -142,7 +147,8 @@ public class Player : MonoBehaviour
             EventManager.hitEvent?.Invoke();
             otherCollider = other;
             isPlayerHit = true;
-
+            int rand = Random.Range(0, effectsHit.Length);
+            AudioManager.Instance.PlaySFX(effectsHit[rand]);
             playerAni.SetTrigger("IsHit");
             objectPool.ReturnGameObject(other.gameObject);
         }
@@ -157,7 +163,7 @@ public class Player : MonoBehaviour
 
     /// <summary>
     /// Set animations true or false
-    /// Only works with bool parameters 
+    /// Only works with bool parameters
     /// </summary>
     /// <param name="name"></param>
     /// <param name="isTrue"></param>
@@ -169,7 +175,7 @@ public class Player : MonoBehaviour
             {
                 playerAni.SetBool(name, isTrue);
             }
-            else if(parameters[i].name != name && parameters[i].type == AnimatorControllerParameterType.Bool)
+            else if (parameters[i].name != name && parameters[i].type == AnimatorControllerParameterType.Bool)
             {
                 playerAni.SetBool(parameters[i].name, false);
             }

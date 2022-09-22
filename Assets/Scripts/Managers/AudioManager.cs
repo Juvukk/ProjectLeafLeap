@@ -30,7 +30,11 @@ public class AudioManager : MonoBehaviour
     {
         if (effectsSource.isPlaying)
         {
-            StartCoroutine(WaitForEffectsToFinish(clip));
+            return;
+            // i've turned this off
+            // because with all of the sounds now in the game
+            // having them play one after another gets really annoying sorry!
+            // StartCoroutine(WaitForEffectsToFinish(clip));
         }
         else if (!effectsSource.isPlaying)
         {
