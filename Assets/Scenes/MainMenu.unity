@@ -1786,6 +1786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2133918835907431712, guid: cfc7257d80fc05349a6b7a449d4af57b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2133918835907431715, guid: cfc7257d80fc05349a6b7a449d4af57b, type: 3}
       propertyPath: creditsPanel
       value: 
@@ -2394,7 +2398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5254659152426194197, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5254659153161068962, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -2402,13 +2406,14 @@ PrefabInstance:
       objectReference: {fileID: 145666701}
     - target: {fileID: 5254659153891652460, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_text
-      value: "Andrew Hickin\n\nBekki Broughton\n\nChris Bjoerk\n\nRonald Kitcher-Pentey\n\n\nVictor
-        Lim \u2014 Composer.\n\n\n\"Stylized Low Poly Girl Character\" by micaelsampaio
-        is licensed under Creative Commons Attribution  4.0. https://micaelsampaio.itch.io/
-        \nEdited By Andrew Hickin\n\n\nLowpoly City By Synty Via Unity Asset Store\nHouse
-        by Andrew Hickin\nHalloween Decorations by Andrew Hickin\nCoffee Cup by Andrew
-        Hickin. \nLeaf/ Leaf Piles By Andrew Hickin. \n\n\nUI Design By Bekki Broughton\nUI
-        Art By Andrew Hickin\n\nRussoOne- Open Font Licence Via Google Fonts."
+      value: "Ronald Kitcher-Pentey\n\n\nAndrew Hickin\n\nBekki Broughton\n\nChris
+        Bjoerk\n\nRonald Kitcher-Pentey\n\n\nVictor Lim \u2014 Composer.\n\n\n\"Stylized
+        Low Poly Girl Character\" by micaelsampaio is licensed under Creative Commons
+        Attribution  4.0. https://micaelsampaio.itch.io/ \nEdited By Andrew Hickin\n\n\nLowpoly
+        City By Synty Via Unity Asset Store\nHouse by Andrew Hickin\nHalloween Decorations
+        by Andrew Hickin\nCoffee Cup by Andrew Hickin. \nLeaf/ Leaf Piles By Andrew
+        Hickin. \n\n\nUI Design By Bekki Broughton\nUI Art By Andrew Hickin\n\nRussoOne-
+        Open Font Licence Via Google Fonts."
       objectReference: {fileID: 0}
     - target: {fileID: 5254659153891652460, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_paragraphSpacing
@@ -2416,7 +2421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5254659153964708567, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_text
-      value: "Project Lead\n\nDesigner\n\nProgramer\n\nAudio\n\nMusic\n\n\nCharacter:\n\n\n\n\n\n\nEnviroment:
+      value: "Initial Concept\n\n\nProject Lead\n\nDesigner\n\nProgramer\n\nAudio\n\nMusic\n\n\nCharacter:\n\n\n\n\n\n\nEnviroment:
         \n\n\n\n\n\n\n\nUI\n\n\nFont\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5254659153964708567, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
