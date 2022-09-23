@@ -1788,7 +1788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2133918835907431712, guid: cfc7257d80fc05349a6b7a449d4af57b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2133918835907431715, guid: cfc7257d80fc05349a6b7a449d4af57b, type: 3}
       propertyPath: creditsPanel
@@ -2398,7 +2398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5254659152426194197, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5254659153161068962, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
