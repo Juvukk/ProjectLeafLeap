@@ -2334,15 +2334,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5254659152426194192, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5254659152426194192, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5254659152426194192, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5254659152426194192, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2368,20 +2368,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Credits
       objectReference: {fileID: 0}
+    - target: {fileID: 5254659152426194197, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5254659153161068962, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 145666701}
     - target: {fileID: 5254659153891652460, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
       propertyPath: m_text
-      value: "Andrew Hickin\n\nBekki Broughton\n\nChris Bjoerk\n\nSFX \nRonald Kitcher-Pentey\n\nMusic\nVictor
-        Lim \u2014 Composer.\n\nCharacter:\n\"Stylized Low Poly Girl Character\"
-        by micaelsampaio is licensed under Creative Commons Attribution  4.0. https://micaelsampaio.itch.io/
-        \nEdited By Andrew Hickin\n\nEnviroment: \nLowpoly City By Synty Via Unity
-        Asset Store\nHouse by Andrew Hickin\nHalloween Decorations by Andrew Hickin\nCoffee
-        Cup by Andrew Hickin. \nLeaf/ Leaf Piles By Andrew Hickin. \n\n\nUI Design
-        By Bekki Broughton\nUI Art By Andrew Hickin\nFont\nRussoOne- Open Font Licence
-        Via Google Fonts."
+      value: "Andrew Hickin\n\nBekki Broughton\n\nChris Bjoerk\n\nRonald Kitcher-Pentey\n\n\nVictor
+        Lim \u2014 Composer.\n\n\n\"Stylized Low Poly Girl Character\" by micaelsampaio
+        is licensed under Creative Commons Attribution  4.0. https://micaelsampaio.itch.io/
+        \nEdited By Andrew Hickin\n\n\nLowpoly City By Synty Via Unity Asset Store\nHouse
+        by Andrew Hickin\nHalloween Decorations by Andrew Hickin\nCoffee Cup by Andrew
+        Hickin. \nLeaf/ Leaf Piles By Andrew Hickin. \n\n\nUI Design By Bekki Broughton\nUI
+        Art By Andrew Hickin\n\nRussoOne- Open Font Licence Via Google Fonts."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254659153891652460, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
+      propertyPath: m_paragraphSpacing
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254659153964708567, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
+      propertyPath: m_text
+      value: "Project Lead\n\nDesigner\n\nProgramer\n\nAudio\n\nMusic\n\n\nCharacter:\n\n\n\n\n\n\nEnviroment:
+        \n\n\n\n\n\n\n\nUI\n\n\nFont\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254659153964708567, guid: 7bc8ceb4a693fd9428f4f15715edc4ff, type: 3}
+      propertyPath: m_paragraphSpacing
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
